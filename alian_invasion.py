@@ -5,6 +5,7 @@ import pygame
 from settings import Settings
 from ship import Ship
 from background import Background
+from bullets import Bullet
 
 
 class AlienInvasion:
@@ -22,6 +23,7 @@ class AlienInvasion:
         pygame.display.set_caption("Alien Invasion", "images/icon_small.bmp")
 
         self.ship = Ship(self)
+        self.bullets = pygame.sprite.Group()
         self.background = Background(self)
 
     def run_game(self):
@@ -29,6 +31,7 @@ class AlienInvasion:
         while True:
             self._check_events()
             self.ship.update()
+            self._update_bullets()
             # For each run loop redrawing screen
             self._update_screen()
 
@@ -52,8 +55,10 @@ class AlienInvasion:
         elif event.key == pygame.K_LEFT:
             # Move ship left start
             self.ship.moving_left = True
-        elif event.key == pygame.K_q:
+        elif event.key in (pygame.K_q, pygame.K_ESCAPE):
             sys.exit()
+        elif event.key == pygame.K_SPACE:
+            self._fire_bullet()
 
     def _check_keyup_events(self, event):
         """ Respond on dismiss key"""
@@ -64,11 +69,25 @@ class AlienInvasion:
             # Move ship left stop
             self.ship.moving_left = False
 
+    def _fire_bullet(self):
+        """ Create new bullet and include him in group bullets"""
+        new_bullet = Bullet(self)
+        self.bullets.add_internal(new_bullet)
+
+    def _update_bullets(self):
+        self.bullets.update()
+        # Delete old bullets, which going from border screen
+        for bullet in self.bullets:
+            if bullet.rect.bottom <= 0:
+                self.bullets.remove_internal(bullet)
+
     def _update_screen(self):
         """ Update picture on screen and show new screen """
         # self.screen.fill(self.settings.bg_color)
         self.background.blitme()
         self.ship.blitme()
+        for bullet in self.bullets.sprites():
+            bullet.draw_bullet()
         # Show last drawing screen
         pygame.display.flip()
 

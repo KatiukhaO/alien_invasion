@@ -9,9 +9,8 @@ class Ship():
     def __init__(self, ai_game):
         """ Initialisation ship and sets him started position """
         self.screen = ai_game.screen
-        self.settings = ai_game.settings
+        self.settings = Settings()
         self.screen_rect = ai_game.screen.get_rect()
-        # self.settings = Settings()
 
         # Download picture ship and get rectangle
         self.image = pygame.image.load(self.settings.pic_ship)
