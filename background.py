@@ -1,5 +1,8 @@
 import pygame
 
+from settings import Settings
+
+
 class Background():
     """ Class for control background """
 
@@ -7,11 +10,11 @@ class Background():
         """ Initialisation ship and sets him started position """
         self.screen = ai_game.screen
         self.screen_rect = ai_game.screen.get_rect()
+        self.settings = Settings()
 
         # Download picture ship and get rectangle
-        self.image = pygame.image.load("images/background_space.bmp")
+        self.image = pygame.image.load(self.settings.pic_background)
         self.rect = self.image.get_rect()
-
 
     def blitme(self):
         """ Draw ship in current position """
