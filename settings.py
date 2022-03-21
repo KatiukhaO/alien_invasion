@@ -5,6 +5,6 @@ class Settings():
         """ Initialisation settings game """
         # Screen parameters
         self.screen_width = 1200
-        self.screen_height = 800
+        self.screen_height = 1000
         # Set background color
         self.bg_color = (230, 230, 230)
