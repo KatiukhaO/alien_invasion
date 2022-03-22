@@ -1,7 +1,5 @@
 import pygame
 
-from settings import Settings
-
 
 class Background():
     """ Class for control background """
@@ -10,7 +8,7 @@ class Background():
         """ Initialisation ship and sets him started position """
         self.screen = ai_game.screen
         self.screen_rect = ai_game.screen.get_rect()
-        self.settings = Settings()
+        self.settings = ai_game.settings
 
         # Download picture ship and get rectangle
         self.image = pygame.image.load(self.settings.pic_background)

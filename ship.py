@@ -1,7 +1,5 @@
 import pygame
 
-from settings import Settings
-
 
 class Ship():
     """ Class for control ship """
@@ -9,17 +7,15 @@ class Ship():
     def __init__(self, ai_game):
         """ Initialisation ship and sets him started position """
         self.screen = ai_game.screen
-        self.settings = Settings()
+        self.settings = ai_game.settings
         self.screen_rect = ai_game.screen.get_rect()
 
         # Download picture ship and get rectangle
         self.image = pygame.image.load(self.settings.pic_ship)
         self.rect = self.image.get_rect()
         # Each new ship appears in bottom border screen
-        self.rect.midbottom = self.screen_rect.midbottom
+        self.center_ship()
 
-        # Save float coordinates center ship
-        self.x = float(self.rect.x)
 
         self.moving_right = False
         self.moving_left = False
@@ -36,3 +32,8 @@ class Ship():
     def blitme(self):
         """ Draw ship in current position """
         self.screen.blit(self.image, self.rect)
+
+    def center_ship(self):
+        self.rect.midbottom = self.screen_rect.midbottom
+        # Save float coordinates center ship
+        self.x = float(self.rect.x)

@@ -11,11 +11,19 @@ class Settings():
         # Settings ship
         self.pic_ship = "images/good_ship_2.png"
         self.ship_speed = 3
+        self.ship_limit = 3
 
         # Settings bullet
         self.bullet_speed = 1.5
         self.bullet_pic = "images/bullet_0.png"
         self.bullets_allowed = 4
+
+        # Settings super bullet
+        self.sbullet_color = (200, 200, 200)
+        self.sbullet_speed = 2.5
+        self.sbullet_width = 250
+        self.sbullet_height = 10
+        self.sbullets_allowed = 1
 
         # Settings alien
         self.pic_alian_ship = "images/bad_ship_1.png"
