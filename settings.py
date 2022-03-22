@@ -10,8 +10,16 @@ class Settings():
 
         # Settings ship
         self.pic_ship = "images/good_ship_2.png"
-        self.ship_speed = 1.5
+        self.ship_speed = 3
 
         # Settings bullet
-        self.bullet_speed = 1
+        self.bullet_speed = 1.5
         self.bullet_pic = "images/bullet_0.png"
+        self.bullets_allowed = 4
+
+        # Settings alien
+        self.pic_alian_ship = "images/bad_ship_1.png"
+        self.alien_speed = 1.0
+        self.fleet_drop_speed = 10
+        # fleet_direction of 1 represents right; -1 represents left.
+        self.fleet_direction = 1
