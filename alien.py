@@ -1,4 +1,4 @@
-import  pygame
+import pygame
 
 from pygame.sprite import Sprite
 
@@ -6,7 +6,6 @@ from pygame.sprite import Sprite
 class Alien(Sprite):
 
     def __init__(self, ai_game):
-
         super().__init__()
 
         self.screen = ai_game.screen
@@ -19,7 +18,6 @@ class Alien(Sprite):
         self.rect.y = self.rect.height
 
         self.x = float(self.rect.x)
-
 
     def draw_alien(self):
         """ Output pullets on the display"""
@@ -34,5 +32,5 @@ class Alien(Sprite):
     def update(self):
         """Move the alien right or left."""
         self.x += (self.settings.alien_speed *
-                        self.settings.fleet_direction)
+                   self.settings.fleet_direction)
         self.rect.x = self.x

@@ -1,10 +1,12 @@
 import pygame
+from pygame.sprite import Sprite
 
 
-class Ship():
+class Ship(Sprite):
     """ Class for control ship """
 
     def __init__(self, ai_game):
+        super().__init__()
         """ Initialisation ship and sets him started position """
         self.screen = ai_game.screen
         self.settings = ai_game.settings
@@ -15,7 +17,6 @@ class Ship():
         self.rect = self.image.get_rect()
         # Each new ship appears in bottom border screen
         self.center_ship()
-
 
         self.moving_right = False
         self.moving_left = False
