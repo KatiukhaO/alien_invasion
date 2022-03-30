@@ -22,7 +22,7 @@ class Bullet(Sprite):
     def update(self):
         """ Moving bullets on the top of screen """
         # Update position bullet in float data format
-        self.y -= self.settings.bullet_speed
+        self.y -= self.settings.bullet_speed_factor
         #   Update position rectangle
         self.rect.y = self.y
 
@@ -49,7 +49,7 @@ class SuperBullet(Sprite):
     def update(self):
         """ Moving bullets on the top of screen """
         # Update position bullet in float data format
-        self.y -= self.settings.sbullet_speed
+        self.y -= self.settings.sbullet_speed_factor
         #   Update position rectangle
         self.rect.y = self.y
 
