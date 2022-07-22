@@ -233,7 +233,7 @@ class AlienInvasion:
             bullet.draw_bullet()
 
         for sbullet in self.sbullets.sprites():
-            sbullet.draw_sbullet()
+            sbullet.draw_bullet()
 
         self.aliens.draw(self.screen)
 

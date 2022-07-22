@@ -1,10 +1,9 @@
 class GameStats():
-    """ Treck statistic for game"""
+    """ Track statistic for game"""
 
     def __init__(self, ai_game):
         self.settings = ai_game.settings
         self.reset_status()
-
         # Game run in nonactive staged
         self.game_active = False
         self.hight_score = 0

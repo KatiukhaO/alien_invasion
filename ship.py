@@ -11,13 +11,11 @@ class Ship(Sprite):
         self.screen = ai_game.screen
         self.settings = ai_game.settings
         self.screen_rect = ai_game.screen.get_rect()
-
         # Download picture ship and get rectangle
         self.image = pygame.image.load(self.settings.pic_ship)
         self.rect = self.image.get_rect()
         # Each new ship appears in bottom border screen
         self.center_ship()
-
         self.moving_right = False
         self.moving_left = False
 
@@ -27,7 +25,6 @@ class Ship(Sprite):
             self.x += self.settings.ship_speed_factor
         if self.moving_left and self.rect.left > 0:
             self.x -= self.settings.ship_speed_factor
-
         self.rect.x = self.x
 
     def blitme(self):
